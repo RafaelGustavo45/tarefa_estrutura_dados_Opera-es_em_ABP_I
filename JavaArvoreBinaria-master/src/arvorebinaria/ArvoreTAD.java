@@ -65,7 +65,7 @@ public class ArvoreTAD {
             return;
         }
         this.imprimeEmOrdemRec(n.esq);
-        System.out.println(n.elem);
+        System.out.print(n.elem+" ");
         this.imprimeEmOrdemRec(n.dir);
     }//imprime em ordem crescente, em linhas separadas
 
@@ -75,7 +75,7 @@ public class ArvoreTAD {
         if(n == null){
             return;
         }
-        System.out.println(n.elem);
+        System.out.print(n.elem+" ");
         this.imprimeEmOrdemRec(n.esq);
         this.imprimeEmOrdemRec(n.dir);
     }//imprime em formato pré-ordem (raiz-esq-dir)
@@ -93,7 +93,7 @@ public class ArvoreTAD {
         if (node != null) {
             imprimePosOrdem(node.esq);
             imprimePosOrdem(node.dir);
-            System.out.println(node.elem);
+            System.out.print(node.elem+ " ");
         }
 
     }
