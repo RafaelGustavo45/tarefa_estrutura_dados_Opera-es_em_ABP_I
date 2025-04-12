@@ -9,7 +9,8 @@ public class Principal {
         boolean repetir = true;
 
         while (repetir) {
-            System.out.print("Digite o comando: "); // Adicione um prompt para o usuário
+            //System.out.print("Digite o comando: "); // Adicione um prompt para o usuário
+            System.out.println(" ");
             String linha = scan.nextLine().trim(); // Lê a linha inteira e remove espaços em branco extras
 
             if (linha.equals("INFIXA")) {
@@ -21,23 +22,28 @@ public class Principal {
             } else if (linha.startsWith("I ") && linha.length() > 2) {
                 char convertido = linha.charAt(2); // O caractere a ser inserido estará no índice 2 (após "I ")
                 arv.insere(convertido);
-                System.out.println("Inserindo: " + convertido); // Feedback para o usuário
+                //System.out.println("Inserindo: " + convertido); // Feedback para o usuário
             } else if (linha.startsWith("P ") && linha.length() > 2) {
                 char convertido = linha.charAt(2); // O caractere a ser pesquisado estará no índice 2 (após "P ")
                 arv.pesquisa(convertido);
-                System.out.println("Pesquisando: " + convertido); // Feedback para o usuário
-                System.out.println(arv.pesquisa(convertido));
-            } else if (!linha.isEmpty()) {
-                System.out.println("Comando inválido ou formato incorreto.");
-                repetir=false;
+                //System.out.println("Pesquisando: " + convertido); // Feedback para o usuário
+                boolean existe = arv.pesquisa(convertido);
+                if (existe){
+                    System.out.println(convertido + " existe");
+                } else{
+                    System.out.println(convertido + " não existe");
+                }
             } else {
-                repetir = false; // Se o usuário digitar apenas Enter (linha vazia), sai do loop
+                //System.out.println("Comando inválido ou formato incorreto.");
+                repetir=false;
             }
         }
-        System.out.println("Encerrando o programa."); // Mensagem de encerramento mais amigável
+        //System.out.println("Encerrando o programa."); // Mensagem de encerramento mais amigável
         scan.close();
+        throw new RuntimeException("Presentation Error");
     }
 }
+
 
 
 
